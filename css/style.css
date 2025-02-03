@@ -240,7 +240,7 @@
     width: 80%;
     margin-top: 30px;
     height: 500px;
-    background-image: url('./Assets/Images/motifJaune.svg');
+    background-image: url('../images/img/motifJaune.svg');
     background-size: cover;
   }
   
