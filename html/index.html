@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navBarre">
+        <img src={logo} alt="logoTwinAward" />
+        <ul class="list-group">
+            <li class="list-group-item"><a class='link-list-group' to="/">Présentation des awards</a></li>
+            <li class="list-group-item"><a class='link-list-group' to='/'>Vote</a></li>
+            <li class="list-group-item"><a class='link-list-group' to="/">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' to="/">À propos</a></li>
+        </ul>
+        <div class="linkToConnectDiv">
+            <a to="/" class="linkToConnect">Connexion</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class='firstMain'>
+			<div class="leftPart">
+				<h1>TWIN AWARDS</h1>
+				<p>
+					Bienvenue dans le concours des twinners. <br />
+					Êtes-vous prêt à plonger dans l'univers de ce jeu concours ?
+				</p>
+				<div class='divConnect'>
+					<a to='' class='linkToVoteOrConnect linkToVote'>Voter maintenant</a>
+					<a to='' class='linkToVoteOrConnect linkToCo'>Connectez-vous</a>
+				</div>
+			</div>
+			<div class="rightPart">
+				<img src={logo} alt="logoBlackTwin" />
+			</div>
+		</section>
+
+        <section class="second-main">
+			<h1>Comment ça marche ?</h1>
+			<div class="flexDiv">
+				<div class="flexDivItem">
+					<img src={img1} alt="firstIcon" />
+					<h2>Créer un compte</h2>
+					<p>Créer un compte est gratuit et rapide !</p>
+				</div>
+				<div class="flexDivItem" alt='secondIcon'>
+					<img src={img2} alt="secondIcon" />
+					<h2>Être en Twin</h2>
+					<p>Faire partir des étudiants de la filière TWIn de l'ESATIC</p>
+				</div>
+				<div class="flexDivItem" alt='thirdIcon'>
+					<img src={img3} alt="thirdIcon" />
+					<h2>Voter</h2>
+					<p>Voter dans toutes les catégories et surtout le ou la TWINNER de cette édition</p>
+				</div>
+			</div>
+		</section>
+
+        <section class="third-main">
+			<h1>Pourquoi Twin Awards ?</h1>
+			<div class="divClass">
+				<h1>Twin Awards</h1>
+				<p>
+					Twin awards a été créé et pensé par les étudiants de la twin dans le cadre de se divertir après une année scolaire très coincée. Elle vise à rassembler et créer les liens de famille entre les étudiants de la classe.
+				</p>
+			</div>
+		</section>
+
+        <section class="four-main">
+			<div class="four-item sameNum">
+				<h1>Quelques chiffres</h1>
+			</div>
+			<div class="four-item etud">
+				<p>Effectif</p>
+				<div class="text">
+					<h1>22</h1>
+					<h6>Étudiants</h6>
+				</div>
+			</div>
+			<div class="four-item boys">
+				<div class="text">
+					<h1>19</h1>
+					<h6>Garçons</h6>
+				</div>
+			</div>
+			<div class="four-item girl">
+				<div class="text">
+					<h1>3</h1>
+					<h6>Filles</h6>
+				</div>
+			</div>
+		</section>
+
+        <section class="five-main">
+			<h1>Alors qu'attends-tu pour aller voter ?</h1>
+			<p>Réjoins nous dans cette aventure en votant ton twinner dans chaque catégorie.</p>
+			<a to='/' class='now-vote-link'>Voter maintenant</a>
+		</section>
+
+
+    </main>
+
+    <footer class='footer'>
+        <img src={logo} alt="logoFooterTwin"/>
+        <ul>
+            <li><a class="footerLink" to="/">Presentation des awards</a></li>
+            <li><a class="footerLink" to="/">Vote</a></li>
+            <li><a class="footerLink" to="/">ChatBox</a></li>
+            <li><a class="footerLink" to="/">À propos</a></li>
+        </ul> <hr />
+        <p>&copy; 2024 TwinAwards. Tous droits reservés.</p>
+    </footer>
+
+</body>
+</html>
