@@ -6,7 +6,7 @@ window.addEventListener('resize', () => {
         body.style.display = 'none';
     };
     
-    console.log(windowWidth);
+    console.log(bodyHtml);
     
 });
 console.log(windowWidth);

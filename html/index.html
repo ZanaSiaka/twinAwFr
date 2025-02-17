@@ -6,17 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body id="body">
     <nav class="navBarre">
-        <img src={logo} alt="logoTwinAward" />
+        <img src='../images/logo/logoOriginal.svg' alt="logoTwinAward" />
         <ul class="list-group">
-            <li class="list-group-item"><a class='link-list-group' to="/">Présentation des awards</a></li>
-            <li class="list-group-item"><a class='link-list-group' to='/'>Vote</a></li>
-            <li class="list-group-item"><a class='link-list-group' to="/">ChatBox</a></li>
-            <li class="list-group-item"><a class='link-list-group' to="/">À propos</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="#">Présentation des awards</a></li>
+            <li class="list-group-item"><a class='link-list-group' href='#'>Vote</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="#">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="./propos.html">À propos</a></li>
         </ul>
         <div class="linkToConnectDiv">
-            <a to="/" class="linkToConnect">Connexion</a>
+            <a href="./connexion.html" class="linkToConnect">Connexion</a>
         </div>
     </nav>
 
@@ -29,12 +29,12 @@
 					Êtes-vous prêt à plonger dans l'univers de ce jeu concours ?
 				</p>
 				<div class='divConnect'>
-					<a to='' class='linkToVoteOrConnect linkToVote'>Voter maintenant</a>
-					<a to='' class='linkToVoteOrConnect linkToCo'>Connectez-vous</a>
+					<a href='#' class='linkToVoteOrConnect linkToVote'>Voter maintenant</a>
+					<a href='./connexion.html' class='linkToVoteOrConnect linkToCo'>Connectez-vous</a>
 				</div>
 			</div>
 			<div class="rightPart">
-				<img src={logo} alt="logoBlackTwin" />
+				<img src='../images/logo/logoBlack.svg' alt="logoBlackTwin" />
 			</div>
 		</section>
 
@@ -42,17 +42,17 @@
 			<h1>Comment ça marche ?</h1>
 			<div class="flexDiv">
 				<div class="flexDivItem">
-					<img src={img1} alt="firstIcon" />
+					<img src='../images/img/createAccount.svg' alt="firstIcon" />
 					<h2>Créer un compte</h2>
 					<p>Créer un compte est gratuit et rapide !</p>
 				</div>
 				<div class="flexDivItem" alt='secondIcon'>
-					<img src={img2} alt="secondIcon" />
+					<img src="../images/img/img.svg" alt="secondIcon" />
 					<h2>Être en Twin</h2>
 					<p>Faire partir des étudiants de la filière TWIn de l'ESATIC</p>
 				</div>
 				<div class="flexDivItem" alt='thirdIcon'>
-					<img src={img3} alt="thirdIcon" />
+					<img src="../images/img/vote.svg" alt="thirdIcon" />
 					<h2>Voter</h2>
 					<p>Voter dans toutes les catégories et surtout le ou la TWINNER de cette édition</p>
 				</div>
@@ -97,22 +97,72 @@
         <section class="five-main">
 			<h1>Alors qu'attends-tu pour aller voter ?</h1>
 			<p>Réjoins nous dans cette aventure en votant ton twinner dans chaque catégorie.</p>
-			<a to='/' class='now-vote-link'>Voter maintenant</a>
+			<a href='#' class='now-vote-link'>Voter maintenant</a>
+		</section>
+
+		<section class="last-main">
+			<h1 class="last-main-title">Quelques catégories</h1>
+			<p>Nous vous proposons quelques catégories de TWIN AWARDS</p>
+			<div class="last-main-categories">
+				<div class="last-main-categories-item">
+					<div class="last-main-categories-item-top">
+						<h2 class="last-main-categories-item-title">Catégorie 1</h2>
+					</div>
+					<div class="last-main-categories-item-bottom">
+						<h4>Meilleur badeur</h4>
+						<p>Meilleur badeur de la twin</p>
+						<a href='' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span></a>
+					</div>
+				</div>
+
+				<div class="last-main-categories-item">
+					<div class="last-main-categories-item-top">
+						<h2 class="last-main-categories-item-title">Catégorie 2</h2>
+					</div>
+					<div class="last-main-categories-item-bottom">
+						<h4>Meilleur badeur</h4>
+						<p>Meilleur badeur de la twin</p>
+						<a href='' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span></a>
+					</div>
+				</div>
+				<div class="last-main-categories-item">
+					<div class="last-main-categories-item-top">
+						<h2 class="last-main-categories-item-title">Catégorie 3</h2>
+					</div>
+					<div class="last-main-categories-item-bottom">
+						<h4>Meilleur badeur</h4>
+						<p>Meilleur badeur de la twin</p>
+						<a href='#' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span></a>
+					</div>
+				</div>
+				<div class="last-main-categories-item">
+					<div class="last-main-categories-item-top">
+						<h2 class="last-main-categories-item-title">Catégorie...</h2>
+					</div>
+					<div class="last-main-categories-item-bottom">
+						<h4>Meilleur badeur</h4>
+						<p>Meilleur badeur de la twin</p>
+						<a href='#' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span> </a>
+					</div>
+				</div>
+			</div>
+			<a href='#' class='linkToShowMore'>Voir plus</a>
 		</section>
 
 
     </main>
 
     <footer class='footer'>
-        <img src={logo} alt="logoFooterTwin"/>
+        <img src='../images/logo/logoWhite.svg' alt="logoFooterTwin"/>
         <ul>
-            <li><a class="footerLink" to="/">Presentation des awards</a></li>
-            <li><a class="footerLink" to="/">Vote</a></li>
-            <li><a class="footerLink" to="/">ChatBox</a></li>
-            <li><a class="footerLink" to="/">À propos</a></li>
+            <li><a class="footerLink" href="#">Presentation des awards</a></li>
+            <li><a class="footerLink" href="#">Vote</a></li>
+            <li><a class="footerLink" href="#">ChatBox</a></li>
+            <li><a class="footerLink" href="./propos.html">À propos</a></li>
         </ul> <hr />
         <p>&copy; 2024 TwinAwards. Tous droits reservés.</p>
     </footer>
 
+	<script src="../js/script.js"></script>
 </body>
 </html>

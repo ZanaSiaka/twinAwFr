@@ -431,7 +431,7 @@ html{
   
   .linkToKnowMore{
     text-decoration: none;
-    margin-top: 5px;
+    margin-top: 0;
     color: #FFB700;
     font-size: 0.9em;
   }
@@ -442,7 +442,7 @@ html{
     color: #FFB700;
     border: 2px solid #FFB700;
     height: 2.7em;
-    width: 12em;
+    width: 9em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -561,4 +561,15 @@ html{
   
   #connexion span .adminLog:hover{
     color: #FFB700;
+  }
+
+  #connexion span .spanColor {
+    color: #FFB700;
+    font-weight: 100;
+    font-size: 1em;
+  }
+
+  #connexion span {
+    font-weight: 100;
+    
   }
