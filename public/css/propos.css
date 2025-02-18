@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "designer", "lemon milk", sans-serif; */
+}
+    
+html{
+    height: 100vh;
+    /* width: 100vw; */
+}
+    
+body{
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    /* flex: 1; */
+}
+    
+.navBarre{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+    max-height: 80px;
+    background-color: #222/* black */;
+    width: 100vw;
+    font-family: "lemon milk";
+    position: sticky;
+    top: 0;
+}
+    
+.navBarre img{
+    width: 25%;
+    height: 150px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+    
+.list-group{
+    display: flex;
+    color: white;
+    width: 50%;
+    justify-content: space-evenly;
+    list-style: none;
+    color: white
+}
+    
+.link-list-group {
+    text-decoration: none;
+    color: white;
+    
+}
+    
+.link-list-group:hover{
+    color: #FFB700;
+}
+    
+.linkToConnectDiv{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.linkToConnect{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    border: white 2px solid;
+    background-color: #FFB700 /* #FFEA00 */;
+    height: 50px;
+}
+    
+.linkToConnect:hover{
+    background-color: #FFEA00;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .entete {
+    height: 350px;
+    background-image: url('../images/logo/logoOriginal.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'lemon milk';
+    color: white;
+    font-weight: 900;
+    font-size: 3em;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+}
+
+main section {
+    display: flex;
+    justify-content: space-around;
+    margin: 4em 0;
+}
+
+main section .left, main section .right {
+    width: 40%;
+    color: white;
+    font-family: 'lemon milk';
+}
+
+main section .left h1 {
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+
+main section .left p {
+    font-size: 0.9em;
+    line-height: 1.7em;
+    /* text-justify: ; */
+}
+
+main section .right {
+    background-color: #fff;
+}
+
+
+.footer{
+    width: 100%;
+    /* height: 100px; */
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+footer img{
+    width: 100px;
+}
+
+footer ul{
+    font-family: 'lemon milk';
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+footer ul .footerLink {
+    text-decoration: none;
+    color: white;
+}
+
+footer ul .footerLink:hover{
+    color: #FFB700;
+}
+
+footer hr{
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: white;
+    font-family: 'poppins';
+}

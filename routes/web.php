@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\Welcome::class,'index'])->name('welcome');
+
+Route::get('/awards',[App\Http\Controllers\Awards::class,'index'])->name('awards');
+
+Route::get('/vote', [App\Http\Controllers\Vote::class,'index'])->name('vote');
+
+Route::get('/a_propos', [App\Http\Controllers\Welcome::class,'a_propos'])->name('a_propos');
