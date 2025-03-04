@@ -9,15 +9,18 @@
 </head>
 <body>
     <nav class="navBarre">
-        <img src={logo} alt="logoTwinAward" />
+        <img src='../images/logo/logoOriginal.svg' alt="logoTwinAward" />
         <ul class="list-group">
-            <li class="list-group-item"><a class='link-list-group' to="/">Présentation des Twinners</a></li>
-            <li class="list-group-item"><a class='link-list-group' to="/">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="../html/categorie.html">Présentation des awards</a></li>
+            <li class="list-group-item"><a class='link-list-group' href='../html/categorie.html'>Vote</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="../html/chat_user.html">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="../html/propos.html">À propos</a></li>
         </ul>
         <div class="linkToConnectDiv">
-            <a to="/" class="linkToConnect">Déconnexion</a>
+            <a href="../html/connexion.html" class="linkToConnect">Connexion</a>
         </div>
     </nav>
+
     <div class="back-categorie">
         <ion-icon name="arrow-back" id="prev2"></ion-icon>
         <p>Toutes les catégories</p>
@@ -26,7 +29,7 @@
         <div class="box1">
             <img src="../images/evan.jpeg" alt="">
             <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
+            <a href="../html/nomine.html"><button class="voir-plus">Voir plus</button></a>
         </div>
         <div class="box1">
             <img src="../images/zana.jpeg" alt="">
