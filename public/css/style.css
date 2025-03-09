@@ -1,0 +1,575 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "designer", "lemon milk", sans-serif; */
+  }
+    
+  html{
+    height: 100vh;
+    /* width: 100vw; */
+  }
+    
+    body{
+      background-color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100vw;
+      /* flex: 1; */
+    }
+    
+    .navBarre{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 10%;
+      max-height: 80px;
+      background-color: #222/* black */;
+      width: 100vw;
+      font-family: "lemon milk";
+      position: sticky;
+      top: 0;
+    }
+    
+    .navBarre img{
+      width: 25%;
+      height: 150px;
+      display: flex;
+      justify-self: center;
+      align-self: center;
+    }
+    
+    .list-group{
+      display: flex;
+      color: white;
+      width: 50%;
+      justify-content: space-evenly;
+      list-style: none;
+      color: white
+    }
+    
+    .link-list-group {
+      text-decoration: none;
+      color: white;
+    
+    }
+    
+    .link-list-group:hover{
+      color: #FFB700;
+    }
+    
+    .linkToConnectDiv{
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .linkToConnect{
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      border: white 2px solid;
+      background-color: #FFB700 /* #FFEA00 */;
+      height: 50px;
+    }
+    
+    .linkToConnect:hover{
+      background-color: #FFEA00;
+    }
+    
+    main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    
+    }
+    
+    .firstMain{
+      display: flex;
+      justify-content: space-between;
+      /* background-color: antiquewhite; */
+      padding-top: 70px;
+      height: 500px;
+      margin-bottom: 24px;
+      width: 100%;
+      /* border: 1px solid red */
+    }
+    
+    .firstMain .leftPart{
+      padding-left: 100px;
+      width: 45%;
+    }
+    
+    .firstMain .leftPart h1{
+      font-family: 'designer';
+      font-weight: 100;
+      font-size: 6.5em;
+      color: #FFB700;
+    
+    }
+    
+    .firstMain .leftPart p{
+      font-size: 1.9em;
+      font-family: 'lemon milk';
+      color: white;
+      margin: 20px 0;
+      line-height: auto;
+      font-weight: 100;
+    }
+    
+    .firstMain .divConnect{
+      display: flex;
+    }
+    
+    .firstMain .leftPart .linkToVoteOrConnect{
+      width: 200px;
+      height: 35px;
+      text-decoration: none;
+      color: white;
+      font-family: 'lemon milk';
+      font-size: 0.7em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .firstMain .leftPart .linkToVote{
+      margin-right: 14px;
+      border: none;
+      background-color: #FFB700;
+    } 
+    
+    .firstMain .leftPart .linkToCo{
+      border: solid 2px #FFB700;
+    
+    }
+    
+    .firstMain .rightPart {
+      width: 45%;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    
+    /* .firstMain .rightPart img {
+      position: relative;
+      bottom: 150px;
+      z-index: -1;
+      width: 40000px;
+      } */
+      
+    .firstMain .rightPart img {
+      position: relative; /* ou absolute, selon le besoin */
+      bottom: 150px;
+      width: 200%; /* Ajustez la largeur si nécessaire */
+      /* height: 100%; Ajustez la hauteur si nécessaire */
+      /* max-width: 100%; Évitez que l'image dépasse le conteneur */
+      /* max-height: 100%; Évitez que l'image dépasse le conteneur */
+      z-index: -1; /* Assurez-vous que l'image n'est pas cachée */
+    }
+    
+    
+    .second-main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'lemon milk';
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .second-main h1{
+      color: #FFB700;
+      font-size: 2.4em;
+      margin: 20px 0 20px 0;
+    }
+    
+    .second-main .flexDiv{
+      display: flex;
+      justify-content: space-evenly ;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .second-main .flexDiv .flexDivItem{
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      /* line-height: 2em; */
+    }
+    
+    .second-main .flexDiv .flexDivItem h2{
+      font-size: 1.5em;
+      font-weight: 400;
+      margin: 20px 0 10px 0;
+    }
+    
+    .second-main .flexDiv .flexDivItem p{
+      font-size: 0.8em;
+      font-weight: 200;
+    }
+    
+    .third-main{
+      display: flex;
+      margin-top: 70px;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .third-main h1{
+      color: #FFB700;
+      font-size: 2.4em;
+      font-family: 'lemon milk';
+    }
+    
+    .third-main .divClass {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* justify-content: space-evenly; */
+      width: 80%;
+      margin-top: 30px;
+      height: 500px;
+      background-image: url('../images/img/motifJaune.svg');
+      background-size: cover;
+    }
+    
+    .third-main .divClass h1{
+      font-family: 'designer';
+      color: #222;
+      font-size: 7em;
+    }
+    
+    .third-main .divClass p{
+      font-family: 'lemon milk';
+      text-align: justify;
+      width: 70%;
+      margin-top: 50px;
+    }
+    
+    .four-main{
+      margin-top: 80px;
+      display: grid;
+      text-align: center;
+      justify-content: center;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      background-color: #FFB700;
+      width: 80%;
+      height: 650px;
+      color: white;
+      font-family: 'lemon milk';
+    }
+    
+    .sameNum{
+      display: flex;
+      grid-column: 1/3;
+      background-color: wheat;
+      border-bottom: 2px solid white;
+      padding: 20px;
+      text-align: justify;
+      align-items: center;
+    }
+    
+    .sameNum h1 {
+      font-size: 4em;
+    }
+    
+    .etud{
+      grid-column: 3/6;
+      border-left: 2px solid white;
+      border-bottom: 2px solid white;
+      display: flex;
+      flex-direction: column;
+      padding: 0 20% 0 20%;
+      justify-content: center;
+      align-items: baseline;
+    }
+    
+    .etud p{
+      font-size: 1.4em;
+    }
+    
+    .text{
+      display: flex;
+      align-items: baseline;
+    }
+    
+    .etud h1{
+      font-size: 10em;
+    }
+    
+    .etud h6{
+      font-size: 1em;
+      color: #222;
+    }
+    
+    .boys, .girl{
+      grid-column: 1/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .boys h1, .girl h1{
+      font-size: 10em;
+    }
+    
+    .boys h6, .girl h6{
+      font-size: 1em;
+      color: #222;
+    }
+    
+    .girl{
+      border-left: 2px solid white;
+      grid-column: 4/6;
+    }
+    
+    .five-main {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 50px;
+      align-items: center;
+      text-align: center;
+      font-family: 'lemon milk';
+    }
+    
+    .five-main h1{
+      font-size: 2.4em;
+      width: 50%;
+      /* background-color: #FFB700; */
+      color: #FFB700;
+    }
+    
+    .five-main p{
+      color: white;
+      margin-top: 24px;
+      font-size: 1em;
+    }
+    
+    .five-main .now-vote-link{
+      text-decoration: none;
+      display: flex;
+      margin-top: 24px;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 250px;
+      background-color: #FFB700;
+      color: white;
+    }
+    
+    .last-main {
+      display: flex;
+      flex-direction: column;
+      margin-top: 80px;
+      width: 100%;
+      align-items: center;
+      font-family: 'lemon milk';
+      /* background-color: aquamarine; */
+    }
+    
+    .last-main .last-main-title{
+      font-size: 2.4em;
+      color: #FFB700;
+      margin-bottom: 8px;
+    }
+    
+    .last-main p{
+      color: white;
+      font-size: 1em;
+    }
+    
+    .last-main .last-main-categories{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 3em;
+      gap: 2em 3em;
+    }
+    
+    .last-main .last-main-categories .last-main-categories-item{
+      height: 400px;
+      width: 400px;
+    }
+    
+    .last-main .last-main-categories .last-main-categories-item .last-main-categories-item-top{
+      height: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1em;
+      background-color: #FFB700;
+    }
+    
+    .last-main .last-main-categories .last-main-categories-item .last-main-categories-item-bottom{
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .last-main .last-main-categories .last-main-categories-item .last-main-categories-item-bottom h4{
+      font-size: 1.2em;
+      color: white;
+    }
+    
+    .last-main .last-main-categories .last-main-categories-item .last-main-categories-item-bottom p{
+      font-size: 0.9em;
+      color: white;
+      font-weight: 100;
+      margin-top: 5px;
+    }
+    
+    .linkToKnowMore{
+      text-decoration: none;
+      margin-top: 0;
+      color: #FFB700;
+      font-size: 0.9em;
+    }
+    
+    .linkToShowMore{
+      margin-top: 3em;
+      text-decoration: none;
+      color: #FFB700;
+      border: 2px solid #FFB700;
+      height: 2.7em;
+      width: 9em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* footer */
+    .footer{
+      width: 100%;
+      /* height: 100px; */
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* background-color: aqua; */
+    }
+    
+    footer img{
+      width: 100px;
+    }
+    
+    footer ul{
+      font-family: 'lemon milk';
+      width: 50%;
+      display: flex;
+      justify-content: space-evenly;
+      list-style: none;
+    }
+    
+    footer ul .footerLink {
+      text-decoration: none;
+      color: white;
+    }
+    
+    footer ul .footerLink:hover{
+      color: #FFB700;
+    }
+    
+    footer hr{
+      width: 90%;
+      margin-top: 20px;
+      margin-bottom: 15px;
+    }
+    
+    footer p {
+      color: white;
+      font-family: 'poppins';
+    }
+    
+    #connexion{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'lemon milk';
+      /* z-index: -1; */
+    }
+    
+    #connexion h1 {
+      font-size: 2em;
+      color: #FFB700;
+      margin-bottom: 40px;
+    }
+    
+    #connexion form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    
+    #connexion form input {
+      padding: 10px;
+      width: 50%;
+      margin-bottom: 20px;
+      background-color: #333;
+      border: solid white 2px;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      font-family: 'lemon milk';
+      color: white;
+    }
+    
+    #connexion form input:focus{
+      outline: none;
+    }
+    
+    #connexion form button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 35px;
+      background-color: #FFB700;
+      border: none;
+      font-family: 'lemon milk';
+      color: white;
+      margin: 20px 0 15px 0;
+    }
+    
+    #connexion span {
+      font-size: 1.2em;
+    }
+    
+    #connexion span .adminLog{
+      text-decoration: none;
+      color: white;
+    }
+    
+    #connexion span .adminLog:hover{
+      color: #FFB700;
+    }
+  
+    #connexion span .spanColor {
+      color: #FFB700;
+      font-weight: 100;
+      font-size: 1em;
+    }
+  
+    #connexion span {
+      font-weight: 100;
+      
+    }
