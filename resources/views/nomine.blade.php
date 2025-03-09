@@ -12,13 +12,23 @@
     <nav class="navBarre">
         <img src='../images/logo/logoOriginal.svg' alt="logoTwinAward" />
         <ul class="list-group">
-            <li class="list-group-item"><a class='link-list-group' href="{{ route('nomine') }}">Présentation des awards</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{ route('welcome') }}">Acceuil</a></li>
             {{-- <li class="list-group-item"><a class='link-list-group' href='/' style="color: #FFB700;">Vote</a></li> --}}
-            <li class="list-group-item"><a class='link-list-group' href="/">ChatBox</a></li>
-            <li class="list-group-item"><a class='link-list-group' href="/" >À propos</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('chatbox')}}">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('apropos')}}">À propos</a></li>
         </ul>
         <div class="linkToConnectDiv">
-            <a href="./connexion.html" class="linkToConnect">Déconnexion</a>
+            @auth
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class='linkToConnect linkToConnectDiv'>Se deconnecter
+                    </button>
+                </form>
+            @else
+                <a href='{{ route('authenticate') }}'   class=''>Connectez-vous
+                </a>
+            @endauth
         </div>
     </nav>
 
@@ -26,75 +36,72 @@
         <div class="entete">
             Les nominés
         </div>
-        <div class="search">
-            <select name="" id="" class="input">
+        <form class="search" action="{{ route('nomines') }}" method="GET">
+            <select name="category" id="category" class="input" onchange="this.form.submit()">
                 <option value="" class="option">Tous les nominés</option>
-                <option value="" class="option">Meilleur dormeur</option>
-                <option value="" class="option">Meilleur badeur</option>
+                @foreach ($awards as $award)
+                    <option value="{{ $award->nom }}" class="option"
+                            @if(request('category') == $award->id) selected @endif>
+                        {{ $award->nom }}
+                    </option>
+                @endforeach
             </select>
-            <input type="text" placeholder="Recherchez un nominé..." class="input">
-            <button class="btn"> <img src="../images/img/search.svg" alt=""> Rechercher</button>
-        </div>
-        @foreach ($awards as $award)
+        </form>
+
+    @foreach ($nomines as $nomine)
         <div class="gridCat">
             <div class="card">
                 <div class="cardTop">
-                    <img src="{{ asset('storage/' . $award->imageUrl) }}" alt="">
+                    @if($award->user && $award->user->imageUrl)
+                    <img src="{{ asset('storage/' . $award->user->imageUrl) }}" alt="">
+                    @else
+                        <h2>Aucune photo</h2>
+                    @endif
                     {{--ou  <img src="{{ Storage::url($award->imageUrl) }}" alt=""> --}}
                 </div>
                 <div class="cardBottom">
-                    <p class="name">{{ $award->nom }}</p>
-                    <div class="categorie">{{ $award->nom }}</div>
-                    <button class="cardBtn"><img src="../images/img/voteBlack.svg" alt="voterIcon">Voter</button>
+                    <p class="name">{{  $nomine->user->pseudo }}</p>
+                    <div class="categorie">{{ $nomine->award->nom }}</div>
+                    <a href="{{ route('voter', $nomine->id) }}" class="cardBtn"><img src="../images/img/voteBlack.svg" alt="voterIcon">Voter</a>
                 </div>
             </div>
         </div>
             @endforeach
 
-            {{-- <div class="card">
-                <div class="cardTop">
-                    <img src="../images/img/mrBusy.svg" alt="">
-                </div>
-                <div class="cardBottom">
-                    <p class="name">Zana Siaka COULIBALY</p>
-                    <div class="categorie">Meilleur Gbayeur</div>
-                    <button class="cardBtn"><img src="../images/img/voteBlack.svg" alt="voterIcon">Voter</button>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="cardTop">
-                    <img src="../images/img/mrBusy.svg" alt="">
-                </div>
-                <div class="cardBottom">
-                    <p class="name">Zana Siaka COULIBALY</p>
-                    <div class="categorie">Meilleur Gbayeur</div>
-                    <button class="cardBtn"><img src="../images/img/voteBlack.svg" alt="voterIcon">Voter</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="cardTop">
-                    <img src="../images/img/mrBusy.svg" alt="">
-                </div>
-                <div class="cardBottom">
-                    <p class="name">Zana Siaka COULIBALY</p>
-                    <div class="categorie">Meilleur Gbayeur</div>
-                    <button class="cardBtn"><img src="../images/img/voteBlack.svg" alt="voterIcon">Voter</button>
-                </div>
-            </div> --}}
-        
     </main>
-    
+
     <footer class='footer'>
+
         <img src='../images/logo/logoWhite.svg' alt="logoFooterTwin"/>
         <ul>
-            <li><a class="footerLink" href="#">Presentation des awards</a></li>
-            <li><a class="footerLink" href="#" style="color: #FFB700">Vote</a></li>
-            <li><a class="footerLink" href="#">ChatBox</a></li>
-            <li><a class="footerLink" href="#" >À propos</a></li>
+            <li><a class="footerLink" href="#" style="color: #FFB700">Presentation des awards</a></li>
+            <li><a class="footerLink" href="{{route('chatbox')}}">ChatBox</a></li>
+            <li><a class="footerLink" href="{{route('apropos')}}" >À propos</a></li>
         </ul> <hr />
         <p>&copy; 2024 TwinAwards. Tous droits reservés.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: 'Success',
+                text: '{{ session('success') }}',
+                icon: 'success',
+            })
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: 'Error',
+                text: '{{ session('error') }}',
+                icon: 'error',
+            })
+        </script>
+    @endif
+
 </body>
 </html>

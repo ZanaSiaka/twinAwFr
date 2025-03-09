@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Acceuil</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body id="body">
     <nav class="navBarre">
         <img src='../images/logo/logoOriginal.svg' alt="logoTwinAward" />
         <ul class="list-group">
-            <li class="list-group-item"><a class='link-list-group' href="{{ route('nomine') }}">Présentation des awards</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{ route('nomines') }}">Présentation des awards</a></li>
             {{-- <li class="list-group-item"><a class='link-list-group' href=''>Vote</a></li> --}}
-            <li class="list-group-item"><a class='link-list-group' href="#">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('chatbox')}}">ChatBox</a></li>
             <li class="list-group-item"><a class='link-list-group' href="{{ route('apropos') }}">À propos</a></li>
         </ul>
         <div class="linkToConnectDiv">
@@ -31,7 +31,7 @@
 		{{-- Afficher le nom du user connecter --}}
 		{{-- <p class='link-list-group'>{{ Auth::user()->pseudo }}</p> --}}
     </nav>
-    
+
     <main>
         <section class='firstMain'>
 			<div class="leftPart">
@@ -126,58 +126,29 @@
 			<h1 class="last-main-title">Quelques catégories</h1>
 			<p>Nous vous proposons quelques catégories de TWIN AWARDS</p>
 			<div class="last-main-categories">
+                @foreach($awards as $award)
 				<div class="last-main-categories-item">
 					<div class="last-main-categories-item-top">
-						<h2 class="last-main-categories-item-title">Catégorie 1</h2>
+						<h2 class="last-main-categories-item-title">Catégorie {{$award->id}}</h2>
 					</div>
 					<div class="last-main-categories-item-bottom">
-						<h4>Meilleur badeur</h4>
-						<p>Meilleur badeur de la twin</p>
-						<a href='' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span></a>
+						<h4>{{$award->nom}}</h4>
+						<p>{{$award->description}}</p>
+						<a href='{{ route('nomines', ['category' => $award->nom]) }}' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span></a>
 					</div>
 				</div>
+                @endforeach
 
-				<div class="last-main-categories-item">
-					<div class="last-main-categories-item-top">
-						<h2 class="last-main-categories-item-title">Catégorie 2</h2>
-					</div>
-					<div class="last-main-categories-item-bottom">
-						<h4>Meilleur badeur</h4>
-						<p>Meilleur badeur de la twin</p>
-						<a href='' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span></a>
-					</div>
-				</div>
-				<div class="last-main-categories-item">
-					<div class="last-main-categories-item-top">
-						<h2 class="last-main-categories-item-title">Catégorie 3</h2>
-					</div>
-					<div class="last-main-categories-item-bottom">
-						<h4>Meilleur badeur</h4>
-						<p>Meilleur badeur de la twin</p>
-						<a href='#' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span></a>
-					</div>
-				</div>
-				<div class="last-main-categories-item">
-					<div class="last-main-categories-item-top">
-						<h2 class="last-main-categories-item-title">Catégorie...</h2>
-					</div>
-					<div class="last-main-categories-item-bottom">
-						<h4>Meilleur badeur</h4>
-						<p>Meilleur badeur de la twin</p>
-						<a href='#' class='linkToKnowMore'>En savoir plus <span><img src="../images/img/fleche.svg" alt="fleche" /></span> </a>
-					</div>
-				</div>
 			</div>
-			<a href='#' class='linkToShowMore'>Voir plus</a>
+			<a href='{{route('awards')}}' class='linkToShowMore'>Voir plus</a>
 		</section>
     </main>
 
     <footer class='footer'>
         <img src='../images/logo/logoWhite.svg' alt="logoFooterTwin"/>
         <ul>
-            <li><a class="footerLink" href="{{ route('categorie') }}">Presentation des awards</a></li>
-            <li><a class="footerLink" href="{{ route('nomine') }}">Vote</a></li>
-            <li><a class="footerLink" href="#">ChatBox</a></li>
+            <li><a class="footerLink" href="{{ route('nomines') }}">Presentation des awards</a></li>
+            <li><a class="footerLink" href="{{route('chatbox')}}">ChatBox</a></li>
             <li><a class="footerLink" href="{{ route('apropos') }}">À propos</a></li>
         </ul> <hr />
         <p>&copy; 2024 TwinAwards. Tous droits reservés.</p>

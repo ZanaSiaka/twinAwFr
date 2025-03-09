@@ -7,17 +7,27 @@
     <link rel="stylesheet" href="../css/propos.css">
 </head>
 <body>
-    
+
     <nav class="navBarre">
         <img src='../images/logo/logoOriginal.svg' alt="logoTwinAward" />
         <ul class="list-group">
-            <li class="list-group-item"><a class='link-list-group' href="/">Présentation des awards</a></li>
-            <li class="list-group-item"><a class='link-list-group' href='/'>Vote</a></li>
-            <li class="list-group-item"><a class='link-list-group' href="/">ChatBox</a></li>
-            <li class="list-group-item"><a class='link-list-group' href="/" style="color: #FFB700;">À propos</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('awards')}}">Présentation des awards</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('nomines')}}">Vote</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('chatbox')}}">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('apropos')}}" style="color: #FFB700;">À propos</a></li>
         </ul>
         <div class="linkToConnectDiv">
-            <a href="./connexion.html" class="linkToConnect">Déconnexion</a>
+            @auth
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class='linkToConnect linkToConnectDiv'>Se deconnecter
+                    </button>
+                </form>
+            @else
+                <a href='{{ route('authenticate') }}'   class=''>Connectez-vous
+                </a>
+            @endauth
         </div>
     </nav>
 
@@ -37,13 +47,13 @@
             </div>
         </section>
     </main>
-    
+
     <footer class='footer'>
         <img src='../images/logo/logoWhite.svg' alt="logoFooterTwin"/>
         <ul>
-            <li><a class="footerLink" href="#">Presentation des awards</a></li>
-            <li><a class="footerLink" href="#">Vote</a></li>
-            <li><a class="footerLink" href="#">ChatBox</a></li>
+            <li><a class="footerLink" href="{{route('awards')}}">Presentation des awards</a></li>
+            <li><a class="footerLink" href="{{route('nomines')}}">Vote</a></li>
+            <li><a class="footerLink" href="{{route('chatbox')}}">ChatBox</a></li>
             <li><a class="footerLink" href="{{ route('apropos') }}" style="color: #FFB700">À propos</a></li>
         </ul> <hr />
         <p>&copy; 2024 TwinAwards. Tous droits reservés.</p>

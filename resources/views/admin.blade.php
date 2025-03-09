@@ -29,7 +29,7 @@
             text-transform: uppercase;
         }
         .espero-soft-admin nav-item{
-            
+
         }
 
         .btn {
@@ -43,7 +43,7 @@
         <div class="row gx-0 gy-0">
             <nav id="sidebar" class="col-md-2 border-end d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
-                    <h2>Blog</h2>
+                    <h2>Award</h2>
                     <ul class="nav flex-column">
 
                     <li class="nav-item">
@@ -58,7 +58,23 @@
     <a class="nav-link" href="{{route('admin.user.index')}}">
         Users
     </a>
-</li></ul>
+</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.nomine.index')}}">
+                                Nomines
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.vote.index')}}">
+                                Votes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.chat.index')}}">
+                                Chats
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
 

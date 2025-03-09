@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AcceuilController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +15,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/',[AcceuilController::class, 'index'])->name('welcome');
+
+Route::get('/awards',[AcceuilController::class, 'awards'])->name('awards');
 
 // Authentification
 Route::get('/authenticate', [UserController::class, 'authenticate'])->name('authenticate')->middleware('guest');
@@ -29,14 +31,21 @@ Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
 
-Route::get('/Nominer',[UserController::class, 'nominer'] )->name('nomine');
+//Route::get('/Nominer',[UserController::class, 'nominer'] )->name('nomine');
 
-Route::get('/Présentation des awards', function () {
-    return view('categorie');
-})->middleware("admin")->name('categorie');
+Route::get('/nomines', [AcceuilController::class, 'nomines'])->name('nomines');
+
+Route::get('/voter/{id}', [AcceuilController::class, 'voter'])->name('voter');
+
+Route::get('/chatBox', [AcceuilController::class, 'chatBox'])->name('chatbox');
+
+Route::post('/chatBox', [AcceuilController::class, 'storeChat'])->name('chatbox.store');
 
 
-Route::prefix('admin')->name('admin.')->group(function(){
+
+
+
+Route::prefix('admin')->middleware('admin')->name('admin.')->group(function(){
 
     //Get Awards datas
     Route::get('/awards', 'App\Http\Controllers\AwardController@index')->name('award.index');
@@ -63,7 +72,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::delete('/awards/delete/{award}', 'App\Http\Controllers\AwardController@delete')->name('award.delete');
 
 });
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->middleware('admin')->name('admin.')->group(function(){
 
     //Get Roles datas
     Route::get('/roles', 'App\Http\Controllers\RoleController@index')->name('role.index');
@@ -90,7 +99,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::delete('/roles/delete/{role}', 'App\Http\Controllers\RoleController@delete')->name('role.delete');
 
 });
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->middleware('admin')->name('admin.')->group(function(){
 
     //Get Users datas
     Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index');
@@ -115,5 +124,59 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     //Delete User
     Route::delete('/users/delete/{user}', 'App\Http\Controllers\UserController@delete')->name('user.delete');
+
+});
+Route::prefix('admin')->middleware('admin')->name('admin.')->group(function(){
+
+    //Get Roles datas
+    Route::get('/nomines', 'App\Http\Controllers\NomineController@index')->name('nomine.index');
+
+    //Show Role by Id
+    Route::get('/nomines/show/{id}', 'App\Http\Controllers\NomineController@show')->name('nomine.show');
+
+    //Get Roles by Id
+    Route::get('/nomines/create', 'App\Http\Controllers\NomineController@create')->name('nomine.create');
+
+    //Edit Role by Id
+    Route::get('/nomines/edit/{id}', 'App\Http\Controllers\NomineController@edit')->name('nomine.edit');
+
+    //Save new Role
+    Route::post('/nomines/store', 'App\Http\Controllers\NomineController@store')->name('nomine.store');
+
+    //Update One Role
+    Route::put('/nomines/update/{id}', 'App\Http\Controllers\NomineController@update')->name('nomine.update');
+
+    //Update One Role Speedly
+    Route::put('/nomines/speed/{id}', 'App\Http\Controllers\NomineController@updateSpeed')->name('nomine.speed');
+
+    //Delete Role
+    Route::delete('/nomines/delete/{id}', 'App\Http\Controllers\NomineController@delete')->name('nomine.delete');
+
+});
+
+Route::prefix('admin')->middleware('admin')->name('admin.')->group(function(){
+
+    //Get Roles datas
+    Route::get('/votes', 'App\Http\Controllers\VoteController@index')->name('vote.index');
+
+});
+
+Route::prefix('admin')->middleware('admin')->name('admin.')->group(function(){
+
+    //Get Roles datas
+    Route::get('/chats', 'App\Http\Controllers\ChatController@index')->name('chat.index');
+
+    //Show Role by Id
+    Route::get('/chats/show/{id}', [ChatController::class, 'show'])->name('chat.show');
+
+    //Edit Role by Id
+    Route::get('/chats/edit/{id}', 'App\Http\Controllers\ChatController@edit')->name('chat.edit');
+
+    //Update One Role
+    Route::put('/chats/update/{id}', 'App\Http\Controllers\ChatController@update')->name('chat.update');
+
+    //Update One Role Speedly
+    Route::put('/chats/speed/{id}', 'App\Http\Controllers\ChatController@updateSpeed')->name('chat.speed');
+
 
 });

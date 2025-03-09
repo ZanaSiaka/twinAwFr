@@ -23,9 +23,11 @@ class UserController extends Controller
     }
     public function authenticate()
     {
-        // vérifie s'il est authentifier et redirige 
+        // vérifie s'il est authentifier et redirige
         if (auth()->check()) {
             return to_route('welcome');
+        }else if(auth()->check() && auth()->isAdmin()){
+            return to_route('admin.award.index');
         }
         return view('authenticate');
     }
@@ -34,7 +36,11 @@ class UserController extends Controller
         $data = $request->validated();
 
         if (Auth::attempt(['matricule' => $data['matricule'], 'password' => $data['password']])) {
-            return to_route('welcome');
+            if (auth()->user() && auth()->user()->isAdmin()) {
+                return to_route('admin.award.index');
+            } else {
+                return to_route('welcome');
+            }
         } else {
             return to_route('authenticate')
                 ->withInput();

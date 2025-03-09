@@ -11,4 +11,11 @@ class Awards extends Model
     use HasFactory;
 
     protected $fillable = ['nom', 'description', 'imageUrl'];
+
+    // Dans le modèle Award
+    public function nomines()
+    {
+        return $this->hasMany(Nomine::class);  // Relation inverse avec Nomine
+    }
+
 }

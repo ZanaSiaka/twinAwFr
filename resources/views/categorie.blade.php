@@ -5,64 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/categorie.css">
-    
+
 </head>
 <body>
     <nav class="navBarre">
         <img src={logo} alt="logoTwinAward" />
         <ul class="list-group">
-            <li class="list-group-item"><a class='link-list-group' to="/">Présentation des Twinners</a></li>
-            <li class="list-group-item"><a class='link-list-group' to="/">ChatBox</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('welcome')}}">Présentation des Twinners</a></li>
+            <li class="list-group-item"><a class='link-list-group' href="{{route('chatbox')}}">ChatBox</a></li>
         </ul>
         <div class="linkToConnectDiv">
-            <a to="/" class="linkToConnect">Déconnexion</a>
+            @auth
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class='linkToConnect linkToConnectDiv'>Se deconnecter
+                    </button>
+                </form>
+            @else
+                <a href='{{ route('authenticate') }}'   class=''>Connectez-vous
+                </a>
+            @endauth
         </div>
     </nav>
-    <div class="back-categorie">
+    <a href="{{route('welcome')}}" class="back-categorie">
         <ion-icon name="arrow-back" id="prev2"></ion-icon>
         {{-- <p>Toutes les catégories</p> --}}
-    </div>
+    </a>
     <div class="grid-container">
+
+        @foreach($awards as $award)
         <div class="box1">
-            <img src="../images/img/evan.jpeg" alt="">
-            <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
+            <img src="{{ Str::startsWith($award->imageUrl, 'http') ? $award->imageUrl : Storage::url($award->imageUrl) }}" alt="">
+            <p>{{$award->nom}}</p>
+            <a href="{{ route('nomines', ['category' => $award->nom]) }}" class="voir-plus">Voir plus</a>
         </div>
-        <div class="box1">
-            <img src="../images/img/zana.jpeg" alt="">
-            <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        <div class="box1">
-            <img src="../images/img/evan.jpeg" alt="">
-            <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        <div class="box1">
-            <img src="../images/img/odi.jpeg" alt="">
-            <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        <div class="box1">
-            <img src="../images/img/zana.jpeg" alt="">
-            <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        <div class="box1">
-            <img src="../images/img/zana.jpeg" alt="">
-            <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        <div class="box1">
-            <img src="../images/img/evan.jpeg" alt="">
-            <p>Meilleur badeur</p>
-            <button class="voir-plus">Voir plus</button>
-        </div>
-        
+        @endforeach
+
+
     </div>
     <div class="pagination">
         <ion-icon name="arrow-dropleft" id="prev"></ion-icon>
-        <span id="page-info"></span> 
+        <span id="page-info"></span>
         <ion-icon name="arrow-dropright" id="next"></ion-icon>
     </div>
     <script  src = "https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" > </script>
@@ -75,11 +59,11 @@
             const debutIndex = (page - 1) * gridParPage;
             const finIndex = debutIndex + gridParPage;
             items.forEach((item, index) => {
-                item.style.display = (index >= debutIndex && index < finIndex) ? 'block' : 'none';  
+                item.style.display = (index >= debutIndex && index < finIndex) ? 'block' : 'none';
 
-            }); 
+            });
             //mise à jour de l'affichage de la page
-            document.getElementById('page-info').textContent = `${page} / ${totalPages}`;  
+            document.getElementById('page-info').textContent = `${page} / ${totalPages}`;
         }
 
         //gestion des événements pour les boutons precedent et suivant
@@ -89,7 +73,7 @@
                 displayPage(pageActuelle);
                 }
         });
-      
+
         document.getElementById('next').addEventListener('click', () => {
             if (pageActuelle < totalPages) {
                 pageActuelle++;
@@ -97,7 +81,7 @@
                 }
             });
         displayPage(pageActuelle);
-        
+
         document.getElementById('prev2').addEventListener('click', () => {
             if (pageActuelle > 1) {
                 pageActuelle--;

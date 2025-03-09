@@ -22,7 +22,7 @@ class User extends Authenticatable
         'matricule',
         'email',
         'password',
-        'pseudo', 
+        'pseudo',
         'imageUrl'
     ];
 
@@ -51,7 +51,7 @@ class User extends Authenticatable
 	}
 
     public function isAdmin(){
-        return $this->roles()->where('valeur' , '=' , 'ROLE_ADMIN')->exists();
+        return $this->roles()->where('valeur' , '=' , 'admin')->exists();
     }
 
 }
